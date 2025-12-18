@@ -3,11 +3,11 @@ node {
          checkout scm
      }
      stage('Build image') {
-         app = docker.build("unn-project/yskimdev1031")
+         app = docker.build("unn-project/u01251219")
          
      }
      stage('Push image') {
-         docker.withRegistry('https://ec2-13-209-15-117.ap-northeast-2.compute.amazonaws.com/', 'harbor-reg') {
+         docker.withRegistry('ec2-3-34-181-135.ap-northeast-2.compute.amazonaws.com/', 'harbor-reg') {
              app.push("${env.BUILD_NUMBER}")
              app.push("latest")
          }
